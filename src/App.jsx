@@ -10,6 +10,7 @@ import AdminDashboard from './pages/admin/AdminDashboard';
 import StudentCourseList from './pages/student/StudentCourseList';
 import TeacherCourseManagement from './pages/teacher/TeacherCourseManagement';
 import ForumRoutes from './pages/forum/ForumRoutes';
+import UnderConstruction from './components/common/UnderConstruction';
 import './App.css';
 
 const App = () => {
@@ -26,14 +27,24 @@ const App = () => {
         <Route element={<MainLayout />}>
           {/* Admin Routes */}
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/admin/users" element={<UnderConstruction />} />
+          <Route path="/admin/courses" element={<UnderConstruction />} />
+          <Route path="/admin/reports" element={<UnderConstruction />} />
+          <Route path="/admin/settings" element={<UnderConstruction />} />
           
           {/* Teacher Routes */}
           <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
           <Route path="/teacher/courses" element={<TeacherCourseManagement />} />
+          <Route path="/teacher/assignments" element={<UnderConstruction />} />
+          <Route path="/teacher/grades" element={<UnderConstruction />} />
+          <Route path="/teacher/students" element={<UnderConstruction />} />
           
           {/* Student Routes */}
           <Route path="/student/dashboard" element={<StudentDashboard />} />
           <Route path="/student/courses" element={<StudentCourseList />} />
+          <Route path="/student/assignments" element={<UnderConstruction />} />
+          <Route path="/student/grades" element={<UnderConstruction />} />
+          <Route path="/student/calendar" element={<UnderConstruction />} />
 
           {/* Forum Routes */}
           <Route path="/forum/*" element={<ForumRoutes />} />
