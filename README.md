@@ -1,12 +1,55 @@
-# React + Vite
+# AWKUM LMS Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern Learning Management System for AWKUM University built with React and Tailwind CSS.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Role-based access (Admin, Teacher, Student)
+- Modern and responsive UI
+- Course management
+- Assignment handling
+- Real-time notifications
+- Custom theming per role
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Clone the repository
+2. Install dependencies:
+```bash
+npm install
+```
+3. Run development server:
+```bash
+npm run dev
+```
+
+## Deployment
+
+You can deploy this project to either Netlify or Vercel.
+
+### Deploying to Netlify
+
+1. Push your code to a GitHub repository
+2. Log in to [Netlify](https://www.netlify.com)
+3. Click "Add new site" > "Import an existing project"
+4. Choose your GitHub repository
+5. Use these build settings:
+   - Build command: `npm run build`
+   - Publish directory: `dist`
+6. Click "Deploy site"
+
+### Deploying to Vercel
+
+1. Push your code to a GitHub repository
+2. Log in to [Vercel](https://vercel.com)
+3. Click "Add New" > "Project"
+4. Choose your GitHub repository
+5. Keep the default settings (they're automatically detected)
+6. Click "Deploy"
+
+## Development Notes
+
+- The site uses React Router for navigation
+- Tailwind CSS for styling
+- Role-specific themes with AWKUM branding colors
+- Mobile-first responsive design

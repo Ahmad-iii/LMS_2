@@ -79,22 +79,19 @@ const MainLayout = () => {
         </div>
 
         {/* Sidebar */}
-        <aside 
-          className={`
-            fixed md:static inset-y-0 left-0 w-[85%] sm:w-[380px] md:w-64 
-            transform ${showMobileSidebar ? 'translate-x-0' : '-translate-x-full'}
-            md:translate-x-0 transition-transform duration-200 ease-in-out
-            z-40 md:z-0 bg-white md:h-[calc(100vh-4rem)]
-            flex flex-col
-          `}
-        >
-          <div className="flex-1 overflow-y-auto overscroll-contain">
+        <div className={`
+          fixed md:static inset-y-0 left-0 w-[85%] sm:w-[380px] md:w-64 
+          transform ${showMobileSidebar ? 'translate-x-0' : '-translate-x-full'}
+          md:translate-x-0 transition-transform duration-200 ease-in-out
+          z-40 md:z-0 h-[calc(100%-4rem)] md:h-[calc(100vh-4rem)] mt-16 md:mt-0
+        `}>
+          <div className="h-full overflow-y-auto bg-[#F2EFE6] overscroll-contain">
             <Sidebar theme={theme} />
           </div>
-        </aside>
+        </div>
 
         {/* Main Content Area */}
-        <main className="flex-1 min-w-0 h-[calc(100vh-4rem)] overflow-y-auto mt-12 md:mt-0 pb-16 md:pb-0">
+        <main className="flex-1 w-full md:w-0 min-w-0 h-[calc(100vh-4rem)] overflow-y-auto mt-12 md:mt-0">
           <div className="container mx-auto p-4 md:p-6 max-w-7xl">
             <div className="bg-white rounded-lg shadow-sm p-4 md:p-6">
               <Outlet />
@@ -103,19 +100,16 @@ const MainLayout = () => {
         </main>
 
         {/* RightSidebar */}
-        <aside 
-          className={`
-            fixed md:static inset-y-0 right-0 w-[85%] sm:w-[380px] md:w-80
-            transform ${showMobileRightSidebar ? 'translate-x-0' : 'translate-x-full'}
-            md:translate-x-0 transition-transform duration-200 ease-in-out
-            z-40 md:z-0 bg-white md:h-[calc(100vh-4rem)]
-            flex flex-col
-          `}
-        >
-          <div className="flex-1 overflow-y-auto overscroll-contain">
+        <div className={`
+          fixed md:static inset-y-0 right-0 w-[85%] sm:w-[380px] md:w-80
+          transform ${showMobileRightSidebar ? 'translate-x-0' : 'translate-x-full'}
+          md:translate-x-0 transition-transform duration-200 ease-in-out
+          z-40 md:z-0 h-[calc(100%-4rem)] md:h-[calc(100vh-4rem)] mt-16 md:mt-0
+        `}>
+          <div className="h-full overflow-y-auto bg-[#F2EFE6] overscroll-contain">
             <RightSidebar theme={theme} />
           </div>
-        </aside>
+        </div>
 
         {/* Mobile Role Selector */}
         <aside 
@@ -173,35 +167,41 @@ const MainLayout = () => {
       </div>
 
       {/* Mobile Navigation Bar */}
-      <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 flex justify-around p-2 md:hidden z-50">
+      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 flex justify-around p-2 md:hidden z-50">
         <button
           onClick={() => setShowMobileSidebar(true)}
           className={`p-2 rounded-lg ${showMobileSidebar ? 'text-[#800020] bg-red-50' : 'text-gray-600 hover:bg-gray-100'}`}
-          aria-label="Open menu"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
+
         <button
           onClick={() => setShowRoleSelector(true)}
           className={`p-2 rounded-lg ${showRoleSelector ? 'text-[#800020] bg-red-50' : 'text-gray-600 hover:bg-gray-100'}`}
-          aria-label="Switch role"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-          </svg>
+          <div className="relative">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+          </div>
         </button>
+
         <button
           onClick={() => setShowMobileRightSidebar(true)}
           className={`p-2 rounded-lg ${showMobileRightSidebar ? 'text-[#800020] bg-red-50' : 'text-gray-600 hover:bg-gray-100'}`}
-          aria-label="Open notifications"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-          </svg>
+          <div className="relative">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+            </svg>
+            <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-xs rounded-full flex items-center justify-center">
+              2
+            </span>
+          </div>
         </button>
-      </nav>
+      </div>
     </div>
   );
 };
