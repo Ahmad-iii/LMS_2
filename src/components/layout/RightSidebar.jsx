@@ -117,15 +117,15 @@ const RightSidebar = () => {
         {/* Quick Actions */}
         <div className="bg-white rounded-lg p-4">
           <h3 className="font-merriweather font-semibold text-[#1A1A1A] mb-3">Quick Actions</h3>
-          <div className="grid grid-cols-3 gap-2">
+          <div className="grid grid-cols-3 gap-3">
             {roleSpecificContent[userRole].quickActions.map((action, index) => (
               <button
                 key={index}
-                className="p-3 rounded-lg hover:bg-[#F2EFE6] active:bg-[#E8E4D9]
-                  transition-colors border border-[#D8D4C9] flex flex-col items-center gap-2"
+                className="flex flex-col items-center justify-center p-2 rounded-lg border border-[#D8D4C9] bg-[#F2EFE6] hover:bg-[#E8E4D9] transition-colors min-w-0 min-h-0"
+                style={{wordBreak: 'break-word'}}
               >
-                <span className="text-xl select-none">{action.icon}</span>
-                <span className="text-xs font-medium truncate">{action.label}</span>
+                <span className="text-xl select-none mb-1">{action.icon}</span>
+                <span className="text-xs font-medium text-center leading-tight break-words max-w-[70px]">{action.label}</span>
               </button>
             ))}
           </div>

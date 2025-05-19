@@ -108,8 +108,10 @@ const NotificationBell = () => {
             onClick={() => setShowNotifications(false)}
           />
           
-          <Card className="absolute right-0 w-full max-w-[95vw] sm:max-w-md mt-2 max-h-[90vh] overflow-y-auto shadow-xl rounded-lg border border-gray-200 bg-white z-50 sm:w-96">
-            <div className="p-4 border-b border-gray-200">
+          <Card className="absolute right-0 sm:right-0 top-16 sm:top-10 w-full max-w-[95vw] sm:max-w-md 
+            max-h-[calc(100vh-5rem)] sm:max-h-[80vh] overflow-y-auto shadow-xl rounded-lg border 
+            border-gray-200 bg-white z-50 sm:w-96 pb-16 sm:pb-0">
+            <div className="sticky top-0 p-4 border-b border-gray-200 bg-white z-10">
               <div className="flex items-center justify-between">
                 <h3 className="text-lg font-semibold text-gray-900">Notifications</h3>
                 <button

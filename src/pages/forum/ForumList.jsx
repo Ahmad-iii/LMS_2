@@ -1,9 +1,18 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import Card from '../../components/common/Card';
 import Button from '../../components/common/Button';
 import Input from '../../components/common/Input';
 
 const ForumList = () => {
+  const location = useLocation();
+  const userRole = location.pathname.split('/')[1] || 'student';
+  const roleSpecificText = {
+    student: "Access your course discussions and connect with classmates",
+    teacher: "Manage course discussions and interact with students",
+    admin: "Monitor and moderate all forum discussions"
+  };
+
   const [showNewThreadModal, setShowNewThreadModal] = useState(false);
   const [newThreadTitle, setNewThreadTitle] = useState('');
   const [newThreadContent, setNewThreadContent] = useState('');
@@ -67,16 +76,13 @@ const ForumList = () => {
 
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-merriweather font-bold text-[#5D0018]">
-          Discussion Forums
-        </h1>
-        <Button
-          variant="primary"
-          onClick={() => setShowNewThreadModal(true)}
-        >
-          Start New Thread
-        </Button>
+      <div className="text-center p-8">
+        <h2 className="text-2xl font-merriweather font-bold text-gray-900 mb-4">
+          {userRole.charAt(0).toUpperCase() + userRole.slice(1)} Forums
+        </h2>
+        <p className="text-gray-600">
+          {roleSpecificText[userRole]}
+        </p>
       </div>
 
       <div className="grid gap-6">

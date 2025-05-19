@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import MainLayout from './components/layout/MainLayout';
 import AuthLayout from './components/layout/AuthLayout';
 import Login from './pages/auth/login/Login';
@@ -31,6 +31,7 @@ const App = () => {
           <Route path="/admin/courses" element={<UnderConstruction />} />
           <Route path="/admin/reports" element={<UnderConstruction />} />
           <Route path="/admin/settings" element={<UnderConstruction />} />
+          <Route path="/admin/forum/*" element={<ForumRoutes />} />
           
           {/* Teacher Routes */}
           <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
@@ -38,6 +39,7 @@ const App = () => {
           <Route path="/teacher/assignments" element={<UnderConstruction />} />
           <Route path="/teacher/grades" element={<UnderConstruction />} />
           <Route path="/teacher/students" element={<UnderConstruction />} />
+          <Route path="/teacher/forum/*" element={<ForumRoutes />} />
           
           {/* Student Routes */}
           <Route path="/student/dashboard" element={<StudentDashboard />} />
@@ -45,9 +47,10 @@ const App = () => {
           <Route path="/student/assignments" element={<UnderConstruction />} />
           <Route path="/student/grades" element={<UnderConstruction />} />
           <Route path="/student/calendar" element={<UnderConstruction />} />
+          <Route path="/student/forum/*" element={<ForumRoutes />} />
 
-          {/* Forum Routes */}
-          <Route path="/forum/*" element={<ForumRoutes />} />
+          {/* Redirect /forum to role-specific forum */}
+          <Route path="/forum/*" element={<Navigate to="/student/forum" replace />} />
         </Route>
 
         {/* Default route to student dashboard for showcase */}
