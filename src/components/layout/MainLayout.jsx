@@ -4,6 +4,7 @@ import Header from './Header';
 import Sidebar from './Sidebar';
 import RightSidebar from './RightSidebar';
 import { roleThemes } from '../../constants/themes';
+import UniversalMenu from '../common/UniversalMenu';
 
 const MainLayout = () => {
   const [showMobileSidebar, setShowMobileSidebar] = useState(false);
@@ -47,17 +48,23 @@ const MainLayout = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-[#F7F5F0]">
-      <Header 
-        theme={theme}
-        onMenuClick={() => setShowMobileSidebar(true)}
-        onNotificationsClick={() => setShowMobileRightSidebar(true)}
-      />
+      {/* Universal Menu - Fixed at the top */}
+      <UniversalMenu />
       
+      {/* App Header - Below Universal Menu */}
+      <div className="mt-[40px]"> {/* Adjust this value based on UniversalMenu height */}
+        <Header 
+          theme={theme}
+          onMenuClick={() => setShowMobileSidebar(true)}
+          onNotificationsClick={() => setShowMobileRightSidebar(true)}
+        />
+      </div>
+
       <div className="flex flex-1 pt-16">
         {/* Overlays */}
         {(showMobileSidebar || showMobileRightSidebar || showRoleSelector) && (
           <div 
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-30 md:hidden"
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[60] md:hidden"
             onClick={() => {
               setShowMobileSidebar(false);
               setShowMobileRightSidebar(false);
@@ -67,7 +74,7 @@ const MainLayout = () => {
         )}
 
         {/* Navigation Arrows (Mobile) */}
-        <div className="fixed left-0 right-0 top-16 flex justify-between px-4 py-2 bg-white border-b border-gray-200 md:hidden z-20">
+        <div className="fixed left-0 right-0 top-[88px] flex justify-between px-4 py-2 bg-white border-b border-gray-200 md:hidden z-[50]">
           <button
             onClick={() => handleNavigation('back')}
             className="p-2 rounded-full hover:bg-gray-100"
@@ -93,7 +100,7 @@ const MainLayout = () => {
           fixed md:static inset-y-0 left-0 w-[85%] sm:w-[380px] md:w-64 
           transform ${showMobileSidebar ? 'translate-x-0' : '-translate-x-full'}
           md:translate-x-0 transition-transform duration-200 ease-in-out
-          z-40 md:z-0 h-[calc(100vh-4rem)] md:h-[calc(100vh-4rem)] mt-16 md:mt-0 pb-16 md:pb-0
+          z-[60] md:z-0 h-[calc(100vh-4rem)] mt-[88px] md:mt-0 pb-16 md:pb-0
         `}>
           <div className="h-full overflow-y-auto bg-[#F2EFE6] overscroll-contain">
             <Sidebar theme={theme} />
@@ -114,7 +121,7 @@ const MainLayout = () => {
           fixed md:static inset-y-0 right-0 w-[85%] sm:w-[380px] md:w-80
           transform ${showMobileRightSidebar ? 'translate-x-0' : 'translate-x-full'}
           md:translate-x-0 transition-transform duration-200 ease-in-out
-          z-40 md:z-0 h-[calc(100vh-4rem)] md:h-[calc(100vh-4rem)] mt-16 md:mt-0 pb-16 md:pb-0
+          z-[60] md:z-0 h-[calc(100vh-4rem)] mt-[88px] md:mt-0 pb-16 md:pb-0
         `}>
           <div className="h-full overflow-y-auto bg-[#F2EFE6] overscroll-contain">
             <RightSidebar theme={theme} />
@@ -175,7 +182,7 @@ const MainLayout = () => {
       </div>
 
       {/* Mobile Navigation Bar */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 flex justify-around p-2 md:hidden z-50">
+      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 flex justify-around p-2 md:hidden z-[60]">
         {/* Menu */}
         <button
           onClick={() => setShowMobileSidebar(true)}
