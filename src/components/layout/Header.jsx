@@ -63,7 +63,7 @@ const Header = ({ onMenuClick }) => {
 
   return (
     <header 
-      className="fixed top-0 left-0 right-0 h-16 z-40 shadow-lg"
+      className="fixed left-0 right-0 h-16 z-[50] shadow-lg"
       style={{ background: theme.primary }}
     >
       <div className="h-full px-4 mx-auto flex items-center justify-between">

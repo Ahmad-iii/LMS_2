@@ -108,26 +108,26 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-4">
-      <div className="w-full sm:max-w-lg">
+    <div className="min-h-screen flex flex-col items-center justify-center p-2 sm:p-4">
+      <div className="w-full max-w-[95%] sm:max-w-lg">
         {/* Logo and Title */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-4 sm:mb-8">
           <img
             src="/AWKUM_logo.png"
             alt="AWKUM Logo"
-            className="mx-auto w-24 h-24 mb-4"
+            className="mx-auto w-16 h-16 sm:w-24 sm:h-24 mb-3 sm:mb-4"
           />
-          <h1 className="text-2xl font-merriweather font-bold text-[#5D0018] mb-2">
+          <h1 className="text-xl sm:text-2xl font-merriweather font-bold text-[#5D0018] mb-1 sm:mb-2">
             Create Your Account
           </h1>
-          <p className="text-[#4A4A4A]">
+          <p className="text-sm sm:text-base text-[#4A4A4A]">
             Join AWKUM LMS to start your learning journey
           </p>
         </div>
 
         {/* Registration Form */}
-        <Card variant="white" className="shadow-lg">
-          <form onSubmit={handleSubmit} className="space-y-6">
+        <Card variant="white" className="shadow-lg px-3 py-4 sm:p-6">
+          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
             <Input
               label="Full Name"
               type="text"
@@ -152,7 +152,7 @@ const Register = () => {
               required
             />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <Input
                 label="Password"
                 type="password"
@@ -199,7 +199,7 @@ const Register = () => {
                 name="department"
                 value={formData.department}
                 onChange={handleChange}
-                className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#5D0018] focus:border-transparent ${
+                className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#5D0018] focus:border-transparent text-base ${
                   errors.department ? 'border-red-500' : 'border-gray-300'
                 }`}
                 required
@@ -225,7 +225,7 @@ const Register = () => {
                 name="role"
                 value={formData.role}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#5D0018] focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#5D0018] focus:border-transparent text-base"
               >
                 <option value="student">Student</option>
                 <option value="teacher">Teacher</option>
@@ -233,16 +233,16 @@ const Register = () => {
               </select>
             </div>
 
-            <div className="flex items-center">
+            <div className="flex items-start sm:items-center">
               <input
                 type="checkbox"
                 id="agreeToTerms"
                 name="agreeToTerms"
                 checked={formData.agreeToTerms}
                 onChange={handleChange}
-                className="h-4 w-4 text-[#166335] border-gray-300 rounded focus:ring-[#166335]"
+                className="mt-1 sm:mt-0 h-4 w-4 text-[#166335] border-gray-300 rounded focus:ring-[#166335]"
               />
-              <label htmlFor="agreeToTerms" className="ml-2 text-sm text-gray-700">
+              <label htmlFor="agreeToTerms" className="ml-2 text-xs sm:text-sm text-gray-700">
                 I agree to the{' '}
                 <Link to="/terms" className="text-[#5D0018] hover:text-[#3D0010]">
                   terms and conditions
@@ -250,17 +250,17 @@ const Register = () => {
               </label>
             </div>
             {errors.agreeToTerms && (
-              <p className="text-sm text-red-500">{errors.agreeToTerms}</p>
+              <p className="text-xs sm:text-sm text-red-500 mt-1">{errors.agreeToTerms}</p>
             )}
 
-            <Button type="submit" variant="primary" fullWidth>
+            <Button type="submit" variant="primary" fullWidth className="mt-6">
               Register
             </Button>
           </form>
         </Card>
 
         {/* Login Link */}
-        <p className="mt-8 text-center text-sm">
+        <p className="mt-6 sm:mt-8 text-center text-xs sm:text-sm">
           Already have an account?{' '}
           <Link to="/login" className="text-[#166335] hover:text-[#0E4020] font-medium">
             Login here
