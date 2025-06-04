@@ -62,26 +62,26 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-4">
-      <div className="w-full sm:max-w-md">
+    <div className="min-h-screen flex flex-col items-center justify-center p-2 sm:p-4 mt-[50px] sm:mt-0">
+      <div className="w-full max-w-[95%] sm:max-w-md">
         {/* Logo and Title */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-6 sm:mb-8">
           <img
             src="/AWKUM_logo.png"
             alt="AWKUM Logo"
-            className="mx-auto w-24 h-24 mb-4"
+            className="mx-auto w-16 h-16 sm:w-24 sm:h-24 mb-3 sm:mb-4"
           />
-          <h1 className="text-2xl font-merriweather font-bold text-[#5D0018] mb-2">
+          <h1 className="text-xl sm:text-2xl font-merriweather font-bold text-[#5D0018] mb-1 sm:mb-2">
             Welcome Back
           </h1>
-          <p className="text-[#4A4A4A]">
+          <p className="text-sm sm:text-base text-[#4A4A4A]">
             Login to access your AWKUM LMS account
           </p>
         </div>
 
         {/* Login Form */}
-        <Card variant="white" className="shadow-lg">
-          <form onSubmit={handleSubmit} className="space-y-6">
+        <Card variant="white" className="shadow-lg px-3 py-4 sm:p-6">
+          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
             <Input
               label="Email"
               type="email"
